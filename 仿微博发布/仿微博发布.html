@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			#txt{
+				height: 300px;
+				width: 400px;
+			}
+		</style>
+	</head>
+	<body>
+			<div id="box">
+				<span>微博发布</span>
+				<textarea id="txt"></textarea>
+				<button id='btn'>发布</button>
+				<ul></ul>
+			</div>
+		<script src="jquery-3.4.1.min.js"></script>
+		
+		<script>
+			$(function(){
+				$('#btn').on('click',function(){
+				var li =$('<li></li>');
+				li.html($('#txt').val()+"<a href='javascript:;'>删除</a>");
+				$('ul').prepend(li);
+				li.slideDown();
+				$('#txt').val('');
+			})
+			$('ul').on('click','a', function(){
+				$(this).parent().remove()
+			})
+			})
+			
+		</script>
+	</body>
+</html>

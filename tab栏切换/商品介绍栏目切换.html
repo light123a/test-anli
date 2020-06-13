@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#box{
+				height: 400px;
+				position: relative;
+				
+				
+			}
+			#tab{
+				float: left;
+				position: absolute;
+			}
+			#tab ul{
+				height: 20px;
+				background-color: #666666;
+				width: 700px;
+				height: 30px;
+				
+				
+			}
+			#tab ul li {
+				list-style: none;
+				float: left;
+				margin-left: 8px;
+				margin-top: 5px;
+				height: 20px;
+				width: 100px;
+			margin-left: 0px;
+			border: 1px solid black;
+			border-right: none;
+				
+			}
+			#contont{
+				float: left;
+				margin-top: 30px;
+			}
+			#contont div{
+				float: left;
+				display: none;
+			}
+			.current{
+				background-color: pink;
+			}
+			
+		</style>
+	</head>
+	<body>
+			<div id="box">
+				<div id="tab">
+					<ul>
+					<li class="current">123</li>
+					<li>23</li>
+					<li>435</li>
+					<li>23</li>
+					<li>35</li>
+				</ul>
+				</div>
+				<div id="contont">
+					<div style="display: block;">商品介绍模块1</div>
+					<div>商品介绍模块2</div>
+					<div>商品介绍模块3</div>
+					<div>商品介绍模块4</div>
+					<div>商品介绍模块5</div>
+				</div>
+			</div>
+			
+		<script src="jquery-3.4.1.min.js"></script>
+		
+		<script>
+			$(function(){
+				$('#tab li').click(function(){
+					$(this).addClass('current').siblings().removeClass('current')
+					var index=$(this).index()
+					$('#contont div').eq(index).show();
+					$('#contont div').eq(index).siblings().hide()
+				})
+			})
+		</script>
+	</body>
+</html>
